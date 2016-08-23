@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>This is test program!</title>
+	<meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+<body ng-controller="RepositController">
+    <table>
+        <tr>
+            <th> Less 10 MB</th>
+            <th>10 - 50 MB</th>
+            <th> >100 MB</th>
+        </tr>
+        <tr>
+            <td> {{count[0]}}</td>
+            <td>{{count[1]}}</td>
+            <td>{{count[2]}}</td>
+        </tr>
+    </table>
+    <div class="DrivesArea">
+        <h3>Fixed drives on the computer:</h3>
+        <h ng-repeat="drive in drives" class="Drive">
+            <a href="#" ng-click="Adr(drive._name)">  <strong> {{drive._name}} </strong></a>
+        </h>
+      
+    </div>
+    <h class="Path">Current Path: <input type="text" size="70" value={{adres}}></h><br>
+    <h>
+        <button type="button" ng-click="Back()" class="Back"> Back </button> <br>
+             <h  ng-repeat="d in res" class="FoldAndFile">
+                 <a ng-click="Adr(d.FullPath)" href="#" class="Folders"><strong>{{d.OriginalPath}}</strong> </a><br/>
+             </h>
+        <h ng-repeat="file in files" class="FoldAndFile">
+            <strong  class="Files">{{file.OriginalPath}}</strong><br />
+        </h>
+    </h>
+    <script src="scripts/angular/angular.min.js"></script>
+    <script src="scripts/app/clientcontroller.js"></script>
+</body>
+</html>
